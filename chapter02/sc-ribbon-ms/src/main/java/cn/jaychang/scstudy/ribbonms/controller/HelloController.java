@@ -1,6 +1,7 @@
-package cn.jaychang.scstudy.hello.controller;
+package cn.jaychang.scstudy.ribbonms.controller;
 
-import org.springframework.beans.factory.annotation.Value;
+import cn.jaychang.scstudy.ribbonms.service.HelloService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -10,11 +11,12 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 public class HelloController {
-    @Value("${server.port:8011}")
-    private String serverPort;
+
+    @Autowired
+    private HelloService helloService;
+
     @GetMapping("/hello")
     public String hello(String name){
-        return "Hello,I am "+name+",I am listening on port "+serverPort;
+        return helloService.hello(name);
     }
-
 }
