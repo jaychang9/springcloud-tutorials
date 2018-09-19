@@ -10,4 +10,8 @@
 
   <name>chapter03</name>
   <packaging>pom</packaging>
+
+  <modules>
+    <module>sc-feign-ms</module>
+  </modules>
 </project>
