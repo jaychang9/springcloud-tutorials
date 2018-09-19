@@ -1,0 +1,9 @@
+server:
+  port: 8011
+eureka:
+  client:
+    service-url:
+      default-zone: http://localhost:8761/eureka/
+spring:
+  application:
+    name: sc-hello-ms
