@@ -1,9 +1,9 @@
-server:
-  port: 8015
 eureka:
   client:
     service-url:
       default-zone: http://localhost:8761/eureka/
+server:
+  port: 8015
 spring:
   application:
     name: sc-feign-ms
