@@ -1,0 +1,12 @@
+server:
+  port: 8025
+spring:
+  application:
+    # 跟配置仓库中的配置文件名称一致,否则会报Could not resolve placeholder
+    name: sc-configclient-ms
+  cloud:
+    config:
+      label: master
+      uri: http://127.0.0.1:8881/
+      profile: dev
+      enabled: true
