@@ -5,14 +5,16 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>cn.jaychang.scstudy</groupId>
-  <artifactId>chapter03</artifactId>
+  <artifactId>chapter08</artifactId>
   <version>1.0-SNAPSHOT</version>
 
-  <name>chapter03</name>
-  <packaging>pom</packaging>
+  <name>chapter08</name>
 
-  <modules>
-    <module>sc-feign-ms</module>
-  </modules>
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.source>1.7</maven.compiler.source>
+    <maven.compiler.target>1.7</maven.compiler.target>
+  </properties>
+
 
 </project>

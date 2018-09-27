@@ -5,14 +5,13 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>cn.jaychang.scstudy</groupId>
-  <artifactId>chapter03</artifactId>
+  <artifactId>chapter10</artifactId>
   <version>1.0-SNAPSHOT</version>
 
-  <name>chapter03</name>
-  <packaging>pom</packaging>
+  <name>chapter10</name>
 
   <modules>
-    <module>sc-feign-ms</module>
+    <module>sc-hello-ha-ms</module>
+    <module>sc-registry-ha-server</module>
   </modules>
-
 </project>

@@ -1,0 +1,25 @@
+server:
+  port: 8021
+eureka:
+  client:
+    service-url:
+      default-zone: http://localhost:8761/eureka
+spring:
+  application:
+    name: sc-zuul-ms
+zuul:
+  routes:
+    api-a:
+      path: /api-a/**
+      serviceId: sc-ribbon-hystrix-ms
+    api-b:
+      path: /api-b/**
+      serviceId: sc-feign-hystrix-ms
+    api-a-token:
+      path: /api-a-token/**
+      serviceId: sc-ribbon-hystrix-ms
+    api-b-token:
+      path: /api-b-token/**
+      serviceId: sc-feign-hystrix-ms
+
+

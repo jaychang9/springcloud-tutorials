@@ -1,0 +1,10 @@
+server:
+  port: 8011
+eureka:
+  client:
+    service-url:
+      #default-zone: http://peer1:8761/eureka/,http://peer2:8762/eureka/,http://peer3:8763/eureka/
+      default-zone: http://127.0.0.1:8761/eureka/,http://127.0.0.1:8762/eureka/,http://127.0.0.1:8763/eureka/
+spring:
+  application:
+    name: sc-hello-ms
