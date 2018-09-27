@@ -1,0 +1,22 @@
+server:
+  port: 8025
+spring:
+  application:
+    # 跟配置仓库中的配置文件名称一致,否则会报Could not resolve placeholder
+    name: sc-config-client-ms
+  cloud:
+    config:
+      label: master
+      profile: dev
+      enabled: true
+      discovery:
+        enabled: true
+        service-id: sc-config-server-v2-ms
+eureka:
+  client:
+    service-url:
+      default-zone: http://localhost:8761
+    register-with-eureka: true
+    fetch-registry: true
+
+

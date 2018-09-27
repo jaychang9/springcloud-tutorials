@@ -4,11 +4,11 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>cn.jaychang.scstudy</groupId>
-	<artifactId>sc-configclient-ms</artifactId>
+	<artifactId>sc-config-server-ms</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>sc-configclient-ms</name>
+	<name>sc-config-server-ms</name>
 	<description>Demo project for Spring Cloud</description>
 
 	<parent>
@@ -28,7 +28,7 @@
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-config</artifactId>
+			<artifactId>spring-cloud-config-server</artifactId>
 		</dependency>
 
 		<dependency>

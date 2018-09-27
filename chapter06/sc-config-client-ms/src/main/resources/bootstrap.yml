@@ -3,7 +3,7 @@ server:
 spring:
   application:
     # 跟配置仓库中的配置文件名称一致,否则会报Could not resolve placeholder
-    name: sc-configclient-ms
+    name: sc-config-client-ms
   cloud:
     config:
       label: master

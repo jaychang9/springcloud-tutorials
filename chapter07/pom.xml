@@ -5,10 +5,10 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>cn.jaychang.scstudy</groupId>
-  <artifactId>chapter06</artifactId>
+  <artifactId>chapter07</artifactId>
   <version>1.0-SNAPSHOT</version>
 
-  <name>chapter06</name>
+  <name>chapter07</name>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -17,8 +17,7 @@
   </properties>
 
   <modules>
-    <module>sc-config-server-ms</module>
-    <module>sc-config-client-ms</module>
+    <module>sc-config-server-v2-ms</module>
+    <module>sc-config-client-v2-ms</module>
   </modules>
-
 </project>
