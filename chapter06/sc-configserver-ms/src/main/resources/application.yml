@@ -1,0 +1,14 @@
+server:
+  port: 8023
+spring:
+  application:
+    name: sc-configserver-ms
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://gitee.com/jaychang/springcloud-tutorial.git
+          searchPaths: repo
+          label: master
+          username:
+          password:
