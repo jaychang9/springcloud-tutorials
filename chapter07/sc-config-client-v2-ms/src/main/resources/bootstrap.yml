@@ -11,12 +11,10 @@ spring:
       enabled: true
       discovery:
         enabled: true
-        service-id: sc-config-server-v2-ms
+        service-id: sc-config-server-v2
 eureka:
   client:
     service-url:
       default-zone: http://localhost:8761
     register-with-eureka: true
     fetch-registry: true
-
-

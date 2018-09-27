@@ -17,7 +17,7 @@
   </properties>
 
   <modules>
-    <module>sc-config-server-ms</module>
+    <module>sc-config-server</module>
     <module>sc-config-client-ms</module>
   </modules>
 

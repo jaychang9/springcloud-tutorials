@@ -2,7 +2,7 @@ server:
   port: 8881
 spring:
   application:
-    name: sc-config-server-ms
+    name: sc-config-server
   cloud:
     config:
       server:
