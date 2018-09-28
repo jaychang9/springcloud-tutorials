@@ -8,13 +8,13 @@ spring:
     config:
       label: master
       profile: dev
-      enabled: true
       discovery:
         enabled: true
+        # 配置服务的实例名称
         service-id: sc-config-server-v2
 eureka:
   client:
     service-url:
-      default-zone: http://localhost:8761
+      default-zone: http://127.0.0.1:8761/eureka/
     register-with-eureka: true
     fetch-registry: true
