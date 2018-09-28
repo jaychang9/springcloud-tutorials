@@ -11,7 +11,7 @@ spring:
       discovery:
         enabled: true
         # 配置服务的实例名称
-        service-id: sc-config-server-v2
+        service-id: sc-config-server-v3
 eureka:
   client:
     service-url:

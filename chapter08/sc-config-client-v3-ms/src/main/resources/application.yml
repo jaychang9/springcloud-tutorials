@@ -1,0 +1,16 @@
+spring:
+  rabbitmq:
+    host: ${spring.rabbitmq.host}
+    port: ${spring.rabbitmq.port}
+    username: ${spring.rabbitmq.username}
+    password: ${spring.rabbitmq.password}
+  cloud:
+    bus:
+      trace:
+        enabled: true
+      refresh:
+        enabled: true
+management:
+  endpoint:
+    bus-refresh:
+      enabled: true
