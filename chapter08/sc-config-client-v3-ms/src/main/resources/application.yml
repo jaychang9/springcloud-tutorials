@@ -11,6 +11,7 @@ spring:
       refresh:
         enabled: true
 management:
-  endpoint:
-    bus-refresh:
-      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: bus-refresh
