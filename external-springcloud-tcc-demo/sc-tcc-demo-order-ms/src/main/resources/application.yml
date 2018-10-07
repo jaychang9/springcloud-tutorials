@@ -85,4 +85,4 @@ logging:
     io.netty: info
     cn.jaychang.scstudy.order: debug
   path: "./logs"
-  file: ${spring.application.name}
+  file: ${spring.application.name}.log
