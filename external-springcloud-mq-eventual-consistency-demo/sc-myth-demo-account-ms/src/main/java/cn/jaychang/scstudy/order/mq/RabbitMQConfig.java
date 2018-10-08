@@ -1,4 +1,4 @@
-package cn.jaychang.scstudy.order.mq;
+package cn.jaychang.scstudy.account.mq;
 
 import com.github.myth.common.utils.LogUtil;
 import com.github.myth.core.service.MythMqReceiveService;
@@ -45,7 +45,7 @@ public class RabbitMQConfig {
     @Bean
     public Queue queue() {
         //队列持久
-        return new Queue("account", true);
+        return new Queue("order", true);
 
     }
 
