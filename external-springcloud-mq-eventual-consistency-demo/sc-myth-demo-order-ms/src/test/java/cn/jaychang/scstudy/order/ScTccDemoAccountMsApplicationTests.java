@@ -1,4 +1,4 @@
-package cn.jaychang.scstudy.account;
+package cn.jaychang.scstudy.order;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
