@@ -1,9 +1,11 @@
 package cn.jaychang.scstudy.order.client;
 
+import cn.jaychang.scstudy.account.service.AccountService;
 import cn.jaychang.scstudy.order.config.FeignConfig;
 import cn.jaychang.scstudy.order.dto.AccountDTO;
 import cn.jaychang.scstudy.order.dto.AccountPaymentDTO;
-import com.hmily.tcc.annotation.Tcc;
+import com.github.myth.annotation.MessageTypeEnum;
+import com.github.myth.annotation.Myth;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,10 +15,10 @@ import org.springframework.web.bind.annotation.*;
  * @description 账户FeignClient
  * @create 2018-10-07 14:39
  */
-@FeignClient(value = "sc-tcc-demo-order-ms", configuration = FeignConfig.class)
+@FeignClient(value = "sc-myth-demo-account-ms", configuration = FeignConfig.class)
 @RequestMapping("/account")
 public interface AccountClient {
-    @Tcc
+    @Myth(destination = "account", target = AccountService.class,pattern = MessageTypeEnum.TOPIC)
     @PostMapping("/payment")
     Boolean payment(@RequestBody AccountPaymentDTO accountPaymentDTO);
 

@@ -6,6 +6,7 @@ import cn.jaychang.scstudy.account.entity.Account;
 import cn.jaychang.scstudy.account.service.AccountService;
 import com.baomidou.mybatisplus.core.conditions.Condition;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.github.myth.annotation.Myth;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -25,15 +26,15 @@ public class AccountServiceImpl implements AccountService {
     @Autowired
     private AccountMapper accountMapper;
 
-    @Transactional
+
+    @Myth(destination = "account")
+    @Transactional(rollbackFor = Exception.class)
     @Override
     public boolean payment(AccountPaymentDTO accountPaymentDTO) {
         Account account = accountMapper.selectOne(Condition.<Account>create().eq("user_id", accountPaymentDTO.getUserId()));
         if(account.getBalance().compareTo(accountPaymentDTO.getAmount()) < 0){
             throw new RuntimeException("余额不足");
         }
-        // 冻结扣款金额
-        account.setFreezeAmount(account.getFreezeAmount().add(accountPaymentDTO.getAmount()));
         // 账户余额减少
         account.setBalance(account.getBalance().subtract(accountPaymentDTO.getAmount()));
         account.setUpdateTime(new Date());

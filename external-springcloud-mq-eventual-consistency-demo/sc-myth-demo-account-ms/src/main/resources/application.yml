@@ -3,7 +3,7 @@ server:
 
 spring:
   application:
-    name: sc-lcn-demo-account-ms
+    name: sc-myth-demo-account-ms
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
     url: jdbc:mysql://10.1.10.237:3306/tcc_account?useUnicode=true&amp;characterEncoding=utf8
@@ -32,6 +32,7 @@ spring:
       port: 5672
       username: guest
       password: guest
+      addresses:
 #  rocketmq:
 #      namesrvAddr: 192.168.1.148:9876
 #      consumerGroupName: account
@@ -100,9 +101,6 @@ logging:
     org.springframework.web: info
     org.apache.ibatis: info
     com.baomidou.mybatisplus: info
-    com.hmily.tcc.bonuspoint: debug
-    com.hmily.tcc.lottery: debug
-    com.hmily.tcc: debug
     io.netty: info
     cn.jaychang.scstudy.account: debug
   path: "./logs"

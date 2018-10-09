@@ -3,7 +3,7 @@ server:
 
 spring:
   application:
-    name: sc-lcn-demo-inventory-ms
+    name: sc-myth-demo-inventory-ms
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
     url: jdbc:mysql://10.1.10.237:3306/tcc_stock?useUnicode=true&amp;characterEncoding=utf8
@@ -22,6 +22,31 @@ spring:
 #      settings:
 #        web-allow-others: true
 
+#  activemq:
+#     broker-url: tcp://120.76.52.162:61616
+#     user: happylife
+#     password: happylifeplat01
+#     trust-all: true
+  rabbitmq:
+      host: 171.188.0.165
+      port: 5672
+      username: guest
+      password: guest
+      addresses:
+#  rocketmq:
+#      namesrvAddr: 192.168.1.148:9876
+#      consumerGroupName: account
+#      instanceName: account
+#  kafka:
+#      consumer:
+#         bootstrap-servers: localhost:9092
+#         group-id: test
+#         auto-offset-reset: earliest
+#         enable-auto-commit: true
+#         auto-commit-interval: 100
+#        key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+#         value-deserializer: org.apache.kafka.common.serialization.ByteArrayDeserializer
+
 eureka:
   client:
     service-url:
@@ -38,39 +63,37 @@ mybatis-plus:
     map-underscore-to-camel-case: true
     use-generated-keys: true
 
-hmily:
-  tcc :
-    serializer : kryo
-    recoverDelayTime : 128
-    retryMax : 30
-    scheduledDelay : 128
-    scheduledThreadMax :  10
-    repositorySupport : db
-    tccDbConfig :
-       driverClassName  : com.mysql.jdbc.Driver
-       url :  jdbc:mysql://10.1.10.237:3306/tcc?useUnicode=true&amp;characterEncoding=utf8
-       username : root
-       password : ckj3306!@#!
-   # repositorySupport : redis
-   #         hostName  : 192.168.1.68
-   #         port      :  6379
-   #         password  :
+com:
+  github:
+    myth:
+      serializer: kryo
+      repositorySupport: db
+      mythDbConfig:
+               driverClassName: com.mysql.jdbc.Driver
+               url: jdbc:mysql://10.1.10.237:3306/myth?useUnicode=true&amp;characterEncoding=utf8
+               username: root
+               password: ckj3306!@#!
+
+     # repositorySupport : redis
+     #         hostName  : 192.168.1.68
+     #         port      :  6379
+     #         password  :
 
 
-   # repositorySupport : zookeeper
-   #         host      : 92.168.1.73:2181
-   #         sessionTimeOut      :  100000
-   #         rootPath  : /tcc
+     # repositorySupport : zookeeper
+     #         host      : 192.168.1.73:2181
+     #         sessionTimeOut      :  100000
+     #         rootPath  : /myth
 
-   # repositorySupport : mongodb
-   #       mongoDbUrl  : 192.168.1.68:27017
-   #       mongoDbName  :  happylife
-   #       mongoUserName  : xiaoyu
-   #       mongoUserPwd   : 123456
+     # repositorySupport : mongodb
+     #       mongoDbUrl  : 192.168.1.68:27017
+     #       mongoDbName  :  youname
+     #       mongoUserName  : xiaoyu
+     #       mongoUserPwd   : 123456
 
-   # repositorySupport : file
-   #         path      : /inventory
-   #         prefix    :  inventory
+     # repositorySupport : file
+     #         path      : /youpath
+     #         prefix    :  youpath
 
 logging:
   level:
@@ -78,9 +101,6 @@ logging:
     org.springframework.web: info
     org.apache.ibatis: info
     com.baomidou.mybatisplus: info
-    com.hmily.tcc.bonuspoint: debug
-    com.hmily.tcc.lottery: debug
-    com.hmily.tcc: debug
     io.netty: info
     cn.jaychang.scstudy.inventory: debug
   path: "./logs"

@@ -41,13 +41,4 @@ public class InventoryController {
         return inventoryDTO;
     }
 
-    @PutMapping("/mockDecreaseTryException")
-    public Boolean mockDecreaseTryException(InventoryDTO inventoryDTO){
-        return inventoryService.mockWithTryException(inventoryDTO);
-    }
-
-    @PutMapping("/mockDecreaseTryTimeout")
-    public Boolean mockDecreaseTryTimeout(InventoryDTO inventoryDTO){
-        return inventoryService.mockWithTryTimeout(inventoryDTO);
-    }
 }

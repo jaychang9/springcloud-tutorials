@@ -16,17 +16,4 @@ public interface PaymentService {
      */
     void makePayment(Order order);
 
-    /**
-     * mock订单支付的时候库存异常.
-     *
-     * @param order 订单实体
-     */
-    void mockPaymentInventoryWithTryException(Order order);
-
-    /**
-     * mock订单支付的时候库存超时.
-     *
-     * @param order 订单实体
-     */
-    void mockPaymentInventoryWithTryTimeout(Order order);
 }

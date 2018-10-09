@@ -1,7 +1,7 @@
 package cn.jaychang.scstudy.order.config;
 
-import com.hmily.tcc.springcloud.feign.HmilyFeignHandler;
-import com.hmily.tcc.springcloud.feign.HmilyRestTemplateInterceptor;
+import com.github.myth.springcloud.feign.MythFeignHandler;
+import com.github.myth.springcloud.feign.MythRestTemplateInterceptor;
 import feign.Feign;
 import feign.InvocationHandlerFactory;
 import feign.Request;
@@ -22,15 +22,15 @@ public class FeignConfig {
     @Scope("prototype")
     public Feign.Builder feignBuilder() {
         return Feign.builder()
-                .requestInterceptor(new HmilyRestTemplateInterceptor())
+                .requestInterceptor(new MythRestTemplateInterceptor())
                 .invocationHandlerFactory(invocationHandlerFactory());
     }
 
     @Bean
     public InvocationHandlerFactory invocationHandlerFactory() {
         return (target, dispatch) -> {
-            HmilyFeignHandler handler = new HmilyFeignHandler();
-            //handler.setTarget(target);
+            MythFeignHandler handler = new MythFeignHandler();
+            handler.setTarget(target);
             handler.setHandlers(dispatch);
             return handler;
         };

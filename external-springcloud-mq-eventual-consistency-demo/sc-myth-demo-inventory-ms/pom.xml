@@ -23,6 +23,7 @@
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
 		<spring-cloud.version>Finchley.SR1</spring-cloud.version>
+		<myth.version>1.0.0-RELEASE</myth.version>
 	</properties>
 
 	<dependencies>
@@ -41,9 +42,14 @@
 		</dependency>
 
 		<dependency>
-			<groupId>com.hmily.tcc</groupId>
-			<artifactId>hmily-tcc-spring-boot-starter-springcloud</artifactId>
-			<version>1.2.1-RELEASE</version>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-amqp</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>cn.jaychang.scstudy</groupId>
+			<artifactId>sc-myth-demo-inventory-api</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 
 		<dependency>
@@ -55,6 +61,18 @@
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 			<scope>runtime</scope>
+		</dependency>
+
+		<!-- Distributed Transaction -->
+		<dependency>
+			<groupId>com.github.myth</groupId>
+			<artifactId>myth-springcloud</artifactId>
+			<version>${myth.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.github.myth</groupId>
+			<artifactId>myth-spring-boot-starter-springcloud</artifactId>
+			<version>${myth.version}</version>
 		</dependency>
 
 		<dependency>

@@ -5,7 +5,7 @@ import cn.jaychang.scstudy.order.entity.Order;
 import cn.jaychang.scstudy.order.enums.OrderStatusEnum;
 import cn.jaychang.scstudy.order.service.OrderService;
 import cn.jaychang.scstudy.order.service.PaymentService;
-import com.hmily.tcc.common.utils.IdWorkerUtils;
+import com.github.myth.common.utils.IdWorkerUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -39,47 +39,6 @@ public class OrderServiceImpl implements OrderService {
         return "success";
     }
 
-    /**
-     * 模拟在订单支付操作中，库存在try阶段中的库存异常
-     *
-     * @param quantity  购买数量
-     * @param amount 支付金额
-     * @return string
-     */
-    @Override
-    public String mockInventoryWithTryException(Integer quantity, BigDecimal amount) {
-        final Order order = buildOrder(quantity, amount);
-        final int rows = orderMapper.insert(order);
-
-        if (rows > 0) {
-            paymentService.mockPaymentInventoryWithTryException(order);
-        }
-
-
-        return "success";
-    }
-
-    /**
-     * 模拟在订单支付操作中，库存在try阶段中的timeout
-     *
-     * @param quantity  购买数量
-     * @param amount 支付金额
-     * @return string
-     */
-    @Override
-    public String mockInventoryWithTryTimeout(Integer quantity, BigDecimal amount) {
-        final Order order = buildOrder(quantity, amount);
-        final int rows = orderMapper.insert(order);
-
-        if (rows > 0) {
-            paymentService.mockPaymentInventoryWithTryTimeout(order);
-        }
-
-
-        return "success";
-    }
-
-
     @Override
     public void updateOrderStatus(Order order) {
         orderMapper.updateById(order);
@@ -89,7 +48,7 @@ public class OrderServiceImpl implements OrderService {
         log.debug("构建订单对象");
         Order order = new Order();
         order.setCreateTime(new Date());
-        order.setNumber(IdWorkerUtils.getInstance().buildPartNumber());
+        order.setNumber(IdWorkerUtils.getInstance().createUUID());
         //demo中的表里只有商品id为 10000的数据
         order.setProductId("10000");
         order.setStatus(OrderStatusEnum.NOT_PAY.getCode());

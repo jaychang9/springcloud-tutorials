@@ -36,22 +36,4 @@ public class OrderController {
 
     }
 
-    @PostMapping(value = "/mockInventoryWithTryException")
-    @ApiOperation(value = "模拟下单付款操作在try阶段异常，此时账户系统和订单状态会回滚，达到数据的一致性（注意:这里模拟的是系统异常，或者rpc异常）")
-    @ApiImplicitParams({@ApiImplicitParam(name = "quantity", value = "数量", dataTypeClass = Integer.class, paramType = "query", required = true, defaultValue = "1"),
-            @ApiImplicitParam(name = "amount", value = "金额", dataTypeClass = BigDecimal.class, paramType = "query", required = true)})
-    public String mockInventoryWithTryException(@RequestParam(value = "quantity") Integer quantity,
-                                                @RequestParam(value = "amount") BigDecimal amount) {
-        return orderService.mockInventoryWithTryException(quantity, amount);
-    }
-
-    @PostMapping(value = "/mockInventoryWithTryTimeout")
-    @ApiOperation(value = "模拟下单付款操作在try阶段超时异常，此时账户系统和订单状态会回滚，达到数据的一致性（异常指的是超时异常）")
-    @ApiImplicitParams({@ApiImplicitParam(name = "quantity", value = "数量", dataTypeClass = Integer.class, paramType = "query", required = true, defaultValue = "1"),
-            @ApiImplicitParam(name = "amount", value = "金额", dataTypeClass = BigDecimal.class, paramType = "query", required = true)})
-    public String mockInventoryWithTryTimeout(@RequestParam(value = "quantity") Integer quantity,
-                                              @RequestParam(value = "amount") BigDecimal amount) {
-        return orderService.mockInventoryWithTryTimeout(quantity, amount);
-    }
-
 }

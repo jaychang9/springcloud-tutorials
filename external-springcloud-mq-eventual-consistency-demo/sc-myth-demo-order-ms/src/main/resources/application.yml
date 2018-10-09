@@ -3,7 +3,7 @@ server:
 
 spring:
   application:
-    name: sc-lcn-demo-order-ms
+    name: sc-myth-demo-order-ms
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
     url: jdbc:mysql://10.1.10.237:3306/tcc_order?useUnicode=true&amp;characterEncoding=utf8
@@ -38,39 +38,42 @@ mybatis-plus:
     map-underscore-to-camel-case: true
     use-generated-keys: true
 
-hmily:
-  tcc :
-    serializer : kryo
-    recoverDelayTime : 128
-    retryMax : 30
-    scheduledDelay : 128
-    scheduledThreadMax :  10
-    repositorySupport : db
-    tccDbConfig :
-       driverClassName  : com.mysql.jdbc.Driver
-       url :  jdbc:mysql://10.1.10.237:3306/tcc?useUnicode=true&amp;characterEncoding=utf8
-       username : root
-       password : ckj3306!@#!
-   # repositorySupport : redis
-   #         hostName  : 192.168.1.68
-   #         port      :  6379
-   #         password  :
+com:
+  github:
+    myth:
+      serializer: kryo
+      needRecover: true
+      recoverDelayTime : 128
+      retryMax: 30
+      scheduledDelay: 128
+      scheduledThreadMax:  10
+      repositorySupport: db
+      mythDbConfig:
+         driverClassName: com.mysql.jdbc.Driver
+         url:  jdbc:mysql://10.1.10.237:3306/myth?useUnicode=true&amp;characterEncoding=utf8
+         username: root
+         password: ckj3306!@#!
+
+     # repositorySupport : redis
+     #         hostName  : 192.168.1.68
+     #         port      :  6379
+     #         password  :
 
 
-   # repositorySupport : zookeeper
-   #         host      : 92.168.1.73:2181
-   #         sessionTimeOut      :  100000
-   #         rootPath  : /tcc
+     # repositorySupport : zookeeper
+     #         host      : 192.168.1.73:2181
+     #         sessionTimeOut      :  100000
+     #         rootPath  : /myth
 
-   # repositorySupport : mongodb
-   #       mongoDbUrl  : 192.168.1.68:27017
-   #       mongoDbName  :  happylife
-   #       mongoUserName  : xiaoyu
-   #       mongoUserPwd   : 123456
+     # repositorySupport : mongodb
+     #       mongoDbUrl  : 192.168.1.68:27017
+     #       mongoDbName  :  youname
+     #       mongoUserName  : xiaoyu
+     #       mongoUserPwd   : 123456
 
-   # repositorySupport : file
-   #         path      : /order
-   #         prefix    :  order
+     # repositorySupport : file
+     #         path      : /youpath
+     #         prefix    :  youpath
 
 
 logging:
@@ -79,10 +82,17 @@ logging:
     org.springframework.web: info
     org.apache.ibatis: info
     com.baomidou.mybatisplus: info
-    com.hmily.tcc.bonuspoint: debug
-    com.hmily.tcc.lottery: debug
-    com.hmily.tcc: debug
     io.netty: info
     cn.jaychang.scstudy.order: debug
   path: "./logs"
   file: ${spring.application.name}.log
+
+sc-myth-demo-account-ms:
+  ribbon:
+   MaxAutoRetries: 0
+   MaxAutoRetriesNextServer: 0
+
+sc-myth-demo-inventory-ms:
+  ribbon:
+   MaxAutoRetries: 0
+   MaxAutoRetriesNextServer: 0
