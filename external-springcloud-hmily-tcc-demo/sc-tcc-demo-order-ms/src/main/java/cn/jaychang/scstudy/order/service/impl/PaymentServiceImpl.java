@@ -34,6 +34,7 @@ public class PaymentServiceImpl implements PaymentService {
     private InventoryClient inventoryClient;
 
     @Tcc(confirmMethod = "confirmOrderStatus",cancelMethod = "cancelOrderStatus")
+    @Transactional
     @Override
     public void makePayment(Order order) {
         // 订单状态修改
