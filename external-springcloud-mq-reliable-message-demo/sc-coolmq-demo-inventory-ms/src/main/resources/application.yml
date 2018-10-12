@@ -1,0 +1,97 @@
+server:
+  port: 8063
+
+spring:
+  application:
+    name: sc-coolmq-demo-inventory-ms
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://10.1.10.237:3306/tcc_stock?useUnicode=true&amp;characterEncoding=utf8
+    username : root
+    password : ckj3306!@#!
+#  datasource:
+#    driver-class-name: org.h2.Driver
+#    url: jdbc:h2:mem:tcc_inventory;MODE=MYSQL;DB_CLOSE_DELAY=-1
+#    username: sa
+#    password:
+#    schema: classpath:db/schema-h2.sql
+#    data: classpath:db/data-h2.sql
+#  h2:
+#    console:
+#      enabled: true
+#      settings:
+#        web-allow-others: true
+
+#  rabbitmq:
+#    host: 171.188.0.165
+#    port: 5672
+#    username: guest
+#    password: guest
+#    virtual-host: laosiji
+#    listener:
+#      direct:
+#        acknowledge-mode: manual
+#        retry:
+#          enabled: true
+#      simple:
+#        acknowledge-mode: manual
+#        retry:
+#          enabled: true
+#        concurrency: 5
+#        max-concurrency: 20
+#    publisher-returns: true
+#    cache:
+#      channel:
+#        size: 100
+
+  redis:
+    host: 10.1.10.239
+    port: 6379
+    password:
+    timeout: 10000
+    jedis:
+      pool:
+        max-active: 10
+        max-wait: -1
+        min-idle: 5
+    database: 4
+
+spring.rabbitmq.host: 171.188.0.165
+spring.rabbitmq.port: 5672
+spring.rabbitmq.username: guest
+spring.rabbitmq.password: guest
+spring.rabbitmq.listener.concurrency: 5
+spring.rabbitmq.listener.max-concurrency: 20
+spring.rabbitmq.listener.retry.enabled: true
+spring.rabbitmq.virtual.host: laosiji
+spring.rabbitmq.cache.channel.size: 100
+spring.rabbitmq.listener.acknowledge-mode: manual
+spring.rabbitmq.listener.publish-returns: true
+
+eureka:
+  client:
+    service-url:
+      default-zone: http://localhost:8761/eureka/
+  instance:
+    prefer-ip-address: true
+
+mybatis-plus:
+  type-aliases-package: cn.jaychang.scstudy.inventory.entity
+  mapper-locations: classpath:mybatis/mapper/**/*.xml
+  global-config:
+    banner: false
+  configuration:
+    map-underscore-to-camel-case: true
+    use-generated-keys: true
+
+logging:
+  level:
+    root: error
+    org.springframework.web: info
+    org.apache.ibatis: info
+    com.baomidou.mybatisplus: info
+    com.coolmq.amqp: info
+    io.netty: info
+    cn.jaychang.scstudy.inventory: debug
+  path: "./logs"
+  file: ${spring.application.name}.log
