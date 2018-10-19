@@ -2,6 +2,7 @@ package cn.jaychang.scstudy.basems.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -18,7 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class BaseController {
 
 	@GetMapping("/hello1")
-	public String hello1(String name){
+	public String hello1(@RequestParam(name = "name",required = true) String name){
 		return "hello"+name;
 	}
 

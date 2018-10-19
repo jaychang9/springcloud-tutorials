@@ -24,5 +24,5 @@ public class ExceptionDTO implements Serializable{
 	private String message;
 
 	/** 异常类class全限定名*/
-	private String exceptionClass;
+	private String exception;
 }
