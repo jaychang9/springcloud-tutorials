@@ -27,7 +27,7 @@ spring:
   cloud:
     stream:
       bindings:
-        outputOrder:
+        outputOrder: # 自定义的Channel (springcloud stream提供的是output)
           destination: mqTestDefault
           contentType: application/json
           binder: defaultRabbit
@@ -112,7 +112,7 @@ spring:
   cloud:
     stream:
       bindings:
-        inputOrder: # 自定义的
+        inputOrder: # 自定义的Channel (springcloud stream提供的是input)
           destination: mqTestDefault # 就是rabbitmq的交换机
           group: inputOrderConsumers # 就是rabbitmq的队列名
           binder: defaultRabbit
@@ -139,3 +139,8 @@ spring:
 * 一般我们每个相同的业务类型，比如订单服务，或者商品服务，订单服务用一个destination(RabbitMQ称之为交换机),商品服务也用一个destination。
 
 * 因为订单服务用一个destination，那么对于订单服务产生的不同事件，如订单创建事件、订单支付完成事件、订单发货事件、订单取消事件，需要用不同的routingkey来区分。如果不区分的话，订单服务不同事件的所有关注着（消费者），都会收到这些消息，显然这个是不合理的。
+
+
+
+# 参考资料
+https://www.jianshu.com/p/1621becd3c4a
