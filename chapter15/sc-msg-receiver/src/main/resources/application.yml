@@ -4,13 +4,13 @@ spring:
   cloud:
     stream:
       bindings:
-        input:
+        input:  # 普通的input，由spring cloud stream预先定义的，见@Sink
           destination: mqTestDefault
           group: demoConsumers
           binder: defaultRabbit
-        inputOrder:
-          destination: mqTestDefault
-          group: inputOrderConsumers
+        inputOrder: # 自定义的
+          destination: mqTestDefault # 就是rabbitmq的交换机
+          group: inputOrderConsumers # 就是rabbitmq的队列名
           binder: defaultRabbit
       binders:
         defaultRabbit:
@@ -30,7 +30,7 @@ spring:
               bindingRoutingKey: test.*
           inputOrder:
             consumer:
-              bindingRoutingKey: orderAdd
+              bindingRoutingKey: orderAdd # 建议还是用这种好了
 #  rabbitmq:
 #    host: 171.188.0.165
 #    port: 5672
