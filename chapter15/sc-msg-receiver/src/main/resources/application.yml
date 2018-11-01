@@ -1,0 +1,47 @@
+server:
+  port: 8902
+spring:
+  cloud:
+    stream:
+      bindings:
+        input:
+          destination: mqTestDefault
+          group: demoConsumers
+          binder: defaultRabbit
+        inputOrder:
+          destination: mqTestDefault
+          group: inputOrderConsumers
+          binder: defaultRabbit
+      binders:
+        defaultRabbit:
+          type: rabbit
+          environment:
+            spring:
+              rabbitmq:
+                host: 171.188.0.165
+                port: 5672
+                username: guest
+                password: guest
+                virtual-host: dev
+      rabbit:
+        bindings:
+          input:
+            consumer:
+              bindingRoutingKey: test.*
+          inputOrder:
+            consumer:
+              bindingRoutingKey: orderAdd
+#  rabbitmq:
+#    host: 171.188.0.165
+#    port: 5672
+#    username: guest
+#    password: guest
+
+logging:
+  level:
+    root: info
+    cn.jaychang.scstudy: debug
+
+
+
+
