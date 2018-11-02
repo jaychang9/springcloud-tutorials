@@ -30,7 +30,7 @@ spring:
               bindingRoutingKey: test.*
           inputOrder:
             consumer:
-              bindingRoutingKey: orderAdd # 建议还是用这种好了
+              bindingRoutingKey: order.add # 建议还是用这种好了
 #  rabbitmq:
 #    host: 171.188.0.165
 #    port: 5672

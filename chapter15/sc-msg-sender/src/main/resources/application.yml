@@ -5,7 +5,7 @@ spring:
     stream:
       bindings:
         output:
-          destination: mqTestDefault # 就是rabbitmq中的交换机的概念，这里可以认为是topic
+          destination: mqTestDefault
           contentType: text/plain
           binder: defaultRabbit
         outputOrder:
@@ -30,11 +30,9 @@ spring:
               routing-key-expression: '''test.*'''
           outputOrder:
             producer:
-              routing-key-expression: '''orderAdd'''
+              routing-key-expression: '''order.add'''
 logging:
   level:
     root: info
     org.springframework.cloud.stream: debug
     cn.jaychang.scstudy: debug
-
-

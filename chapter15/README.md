@@ -46,10 +46,13 @@ spring:
         bindings:
           outputOrder:
             producer:
-              routing-key-expression: '''orderAdd'''
+              routing-key-expression: '''order.add'''
 ```
 
+PS:如果用properties配置文件，那么要用routing-key-expression='order.add'
+
 ## 4.发送消息
+
 ```java
 @Component
 public class OrderMessageSender{
@@ -131,7 +134,7 @@ spring:
         bindings:
           inputOrder:
             consumer:
-              bindingRoutingKey: orderAdd # 建议还是用这种好了
+              bindingRoutingKey: order.add # 建议还是用这种好了
 ```
 
 # 注意事项
