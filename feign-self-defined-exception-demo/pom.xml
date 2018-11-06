@@ -20,5 +20,6 @@
 
   <modules>
       <module>base-ms</module>
+      <module>aggregation-ms</module>
   </modules>
 </project>
