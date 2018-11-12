@@ -28,7 +28,7 @@ public class AccountServiceImpl implements AccountService {
     private AccountMapper accountMapper;
 
     @Tcc(confirmMethod = "confirmPayment",cancelMethod = "cancelPayment")
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     @Override
     public boolean payment(AccountPaymentDTO accountPaymentDTO) {
         Account account = accountMapper.selectOne(Condition.<Account>create().eq("user_id", accountPaymentDTO.getUserId()));

@@ -3,7 +3,6 @@ package cn.jaychang.scstudy.order.service.impl;
 import cn.jaychang.scstudy.order.client.AccountClient;
 import cn.jaychang.scstudy.order.client.InventoryClient;
 import cn.jaychang.scstudy.order.dao.OrderMapper;
-import cn.jaychang.scstudy.order.dto.AccountDTO;
 import cn.jaychang.scstudy.order.dto.AccountPaymentDTO;
 import cn.jaychang.scstudy.order.dto.InventoryDTO;
 import cn.jaychang.scstudy.order.entity.Order;
@@ -34,7 +33,7 @@ public class PaymentServiceImpl implements PaymentService {
     private InventoryClient inventoryClient;
 
     @Tcc(confirmMethod = "confirmOrderStatus",cancelMethod = "cancelOrderStatus")
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     @Override
     public void makePayment(Order order) {
         // 订单状态修改
